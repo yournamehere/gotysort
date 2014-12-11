@@ -15,7 +15,8 @@
 "use strict"
 function sort(){
 	var input = document.getElementById("inputarea");
-	var games = input.value.split("\n");
+	var games = input.value.split(/\s*\n\s*/);
+
 	games.sort(compare);
 	var list = document.getElementById("gotylist");
 	while(list.firstChild){
