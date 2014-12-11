@@ -1,0 +1,38 @@
+<html>
+<body>
+
+<p>Input a list of goty contenders</p>
+
+<textarea id="inputarea" rows = 15></textarea>
+
+<p></p>
+
+<button onclick="sort()">Gotyfy</button>
+
+<div id="gotylist"></div>
+
+<script>
+"use strict"
+function sort(){
+	var input = document.getElementById("inputarea");
+	var games = input.value.split("\n");
+	games.sort(compare);
+	var list = document.getElementById("gotylist");
+	while(list.firstChild){
+		list.removeChild(list.firstChild);
+	}
+	for (var i = 0; i<games.length; i++) {
+		var p = document.createElement("p");
+		p.textContent = i + 1 + ". " + games[i];
+		list.appendChild(p);	
+	}
+}
+function compare (game1, game2){
+	var result = confirm( "is " + game1 + " a better game than " + game2 + "?");
+	return result? -1 : 1;
+}
+
+</script>
+
+</body>
+</html>
